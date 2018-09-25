@@ -36,6 +36,7 @@ const sort = () => {
                                                         </div>
                                                     </div>`
         clearForm(); 
+        activateExpel();
     })
     };
 
@@ -43,3 +44,17 @@ const sort = () => {
         const newVal = document.getElementById('toClear').reset();
         return newVal;
     };
+
+const activateExpel = () => {
+  const deleteButtons = document.getElementsByClassName('deleteButton');
+  
+   for (let i = 0; i < deleteButtons.length; i++) {
+    const element = deleteButtons[i];
+    element.addEventListener("click", (e) => {
+      // remove card that the button was on
+      const buttonIClicked = e.target;
+      const cardToDelete = buttonIClicked.parentNode.parentNode;
+      cardToDelete.remove();
+    })
+  }
+}
